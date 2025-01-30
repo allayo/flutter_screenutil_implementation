@@ -13,6 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: AppRouter.navKey,
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(scrolledUnderElevation: 0),
+      ),
       onGenerateRoute: AppRouter.onGenerateRoute,
       title: 'Flutter Demo',
       initialRoute: AppRouterString.onboardingScreen,

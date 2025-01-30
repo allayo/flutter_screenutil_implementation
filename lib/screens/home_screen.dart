@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sca_ui_imp/shared/app_colors.dart';
 import 'package:sca_ui_imp/shared/assets.dart';
+import 'package:sca_ui_imp/shared/navigation/app_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -77,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    imageBuilder(),
+                    imageBuilder(key: const ValueKey('profile_img')),
                     const SizedBox(
                       height: 10,
                     ),
@@ -241,64 +242,73 @@ class _HomeScreenState extends State<HomeScreen> {
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemBuilder: (_, i) {
-                              return Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color:
-                                            AppColors.greyText.withOpacity(.2),
-                                        spreadRadius: .1,
-                                        blurRadius: 10)
-                                  ],
-                                  borderRadius: BorderRadius.circular(17),
-                                  color: AppColors.white,
-                                ),
-                                child: Row(
-                                  children: [
-                                    imageBuilder(
+                              final valueKey = ValueKey("product_img_$i");
+                              return InkWell(
+                                onTap: () {
+                                  AppRouter.push(AppRouterString.detailsScreen,
+                                      arg: valueKey);
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: AppColors.greyText
+                                              .withOpacity(.2),
+                                          spreadRadius: .1,
+                                          blurRadius: 10)
+                                    ],
+                                    borderRadius: BorderRadius.circular(17),
+                                    color: AppColors.white,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      imageBuilder(
                                         url:
-                                            "https://unsplash.com/photos/0g4OCfUAhuY/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8Z3JlZW50b3dufGVufDB8fHx8MTczODE1NzUzMXww&force=true&w=2400"),
-                                    const SizedBox(
-                                      width: 25,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "876 Green town",
-                                          style: style.copyWith(
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                        Text(
-                                          "Rosaville",
-                                          style: style.copyWith(
+                                            "https://unsplash.com/photos/0g4OCfUAhuY/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8Z3JlZW50b3dufGVufDB8fHx8MTczODE1NzUzMXww&force=true&w=2400",
+                                        key: valueKey,
+                                      ),
+                                      const SizedBox(
+                                        width: 25,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "876 Green town",
+                                            style: style.copyWith(
                                               fontSize: 17,
-                                              fontWeight: FontWeight.w400,
-                                              color: AppColors.greyText),
-                                        ),
-                                        Row(
-                                          children: [
-                                            SvgPicture.asset(
-                                                AppAssets.yellowStarIcon),
-                                            const SizedBox(
-                                              width: 3,
+                                              fontWeight: FontWeight.w600,
                                             ),
-                                            Text(
-                                              "4.9",
-                                              style: style.copyWith(
-                                                fontSize: 16,
+                                          ),
+                                          Text(
+                                            "Rosaville",
+                                            style: style.copyWith(
+                                                fontSize: 17,
                                                 fontWeight: FontWeight.w400,
+                                                color: AppColors.greyText),
+                                          ),
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  AppAssets.yellowStarIcon),
+                                              const SizedBox(
+                                                width: 3,
                                               ),
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    )
-                                  ],
+                                              Text(
+                                                "4.9",
+                                                style: style.copyWith(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               );
                             },
@@ -313,23 +323,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           )
         ],
-      ),
-    );
-  }
-
-  Widget imageBuilder(
-      {double height = 84,
-      double width = 84,
-      String url =
-          "https://unsplash.com/photos/svGwIp_YcOU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTJ8fGxhd3llciUyMGZhY2V8ZW58MHx8fHwxNzM4MTU0ODYyfDA&force=true&w=2400"}) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(17),
-      child: Container(
-        height: height,
-        width: width,
-        decoration: BoxDecoration(
-            image:
-                DecorationImage(fit: BoxFit.cover, image: NetworkImage(url))),
       ),
     );
   }
@@ -373,4 +366,26 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+}
+
+Widget imageBuilder(
+    {double height = 84,
+    double width = 84,
+    required Key key,
+    String url =
+        "https://unsplash.com/photos/svGwIp_YcOU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTJ8fGxhd3llciUyMGZhY2V8ZW58MHx8fHwxNzM4MTU0ODYyfDA&force=true&w=2400",
+    double borderRadius = 17}) {
+  return Hero(
+    tag: key,
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(borderRadius),
+      child: Container(
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+            image:
+                DecorationImage(fit: BoxFit.cover, image: NetworkImage(url))),
+      ),
+    ),
+  );
 }

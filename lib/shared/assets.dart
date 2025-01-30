@@ -13,6 +13,7 @@ class AppAssets {
   static const bookRoomIcon = "${_baseSvg}book_room.svg";
   static const nearByIcon = "${_baseSvg}near_by.svg";
   static const yellowStarIcon = "${_baseSvg}yellow_star.svg";
+  static const calenderIcon = "${_baseSvg}calender.svg";
 }
 
 const style = TextStyle(
