@@ -19,9 +19,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
   DateTime _focusedDay = DateTime.now().add(const Duration(days: 1));
   DateTime _selectedDay = DateTime.now().add(const Duration(minutes: 30));
 
-  // flutter: Day being returned is 2025-01-30 14:39:58.553263
-  // flutter: Day being returned is 2025-01-30 00:00:00.000Z
-
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
