@@ -5,6 +5,7 @@ import 'package:sca_ui_imp/screens/onboarding.dart';
 import 'package:sca_ui_imp/shared/app_colors.dart';
 import 'package:sca_ui_imp/shared/assets.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'home_screen.dart';
 
@@ -45,7 +46,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           color: AppColors.white,
         ),
         actions: [
-          SvgPicture.asset(AppAssets.notificationIcon),
+          SvgPicture.asset(AppAssets.notificationIcon, height: 20.h,width: 17.w,),
           const SizedBox(
             width: 20,
           )
@@ -65,13 +66,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         "Select Date",
                         style: style.copyWith(
                           color: AppColors.white,
-                          fontSize: 26,
+                          fontSize: 26.sp,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                       Row(
                         children: [
-                          SvgPicture.asset(AppAssets.calenderIcon),
+                          SvgPicture.asset(AppAssets.calenderIcon, height: 15.h,width: 15.w,),
                           const SizedBox(
                             width: 7,
                           ),
@@ -79,7 +80,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             DateFormat("MMM yyyy").format(_selectedDay),
                             style: style.copyWith(
                               color: AppColors.white,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
@@ -91,8 +92,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     height: 20,
                   ),
                   TableCalendar(
-                    rowHeight: 33,
-                    daysOfWeekHeight: 30,
+                    rowHeight: 33.h,
+                    daysOfWeekHeight: 30.h,
                     calendarBuilders: CalendarBuilders(
                       dowBuilder: (_, d) {
                         return Container(
@@ -112,7 +113,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                   DateFormat("EE").format(d),
                                   style: style.copyWith(
                                       color: AppColors.white,
-                                      fontSize: 14,
+                                      fontSize: 14.sp,
                                       fontWeight: isSameDay(d, _selectedDay)
                                           ? FontWeight.w700
                                           : null),
@@ -128,7 +129,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             d.day.toString(),
                             style: style.copyWith(
                               color: AppColors.white,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                             ),
                           ),
                         );
@@ -139,7 +140,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             d.day.toString(),
                             style: style.copyWith(
                               color: AppColors.white,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                             ),
                           ),
                         );
@@ -150,7 +151,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             d.day.toString(),
                             style: style.copyWith(
                               color: AppColors.white,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                             ),
                           ),
                         );
@@ -161,7 +162,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             d.day.toString(),
                             style: style.copyWith(
                               color: AppColors.white,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                             ),
                           ),
                         );
@@ -172,7 +173,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             d.day.toString(),
                             style: style.copyWith(
                               color: AppColors.white,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
@@ -191,7 +192,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               d.day.toString(),
                               style: style.copyWith(
                                   color: AppColors.white,
-                                  fontSize: 14,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w700),
                             ),
                           ),
@@ -242,8 +243,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         url:
                             "https://unsplash.com/photos/0g4OCfUAhuY/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8Z3JlZW50b3dufGVufDB8fHx8MTczODE1NzUzMXww&force=true&w=2400",
                         borderRadius: 35,
-                        height: 343,
-                        width: 343,
+                        height: 343.h,
+                        width: 343.w,
                         key: widget.key ?? const ValueKey("product_img_0"),
                       ),
                       const SizedBox(
@@ -259,14 +260,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               Text(
                                 "876 Green town",
                                 style: style.copyWith(
-                                  fontSize: 22,
+                                  fontSize: 22.sp,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                               Text(
                                 "Rosaville",
                                 style: style.copyWith(
-                                    fontSize: 17,
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.w400,
                                     color: AppColors.greyText),
                               ),
@@ -274,14 +275,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           ),
                           Row(
                             children: [
-                              SvgPicture.asset(AppAssets.yellowStarIcon),
+                              SvgPicture.asset(AppAssets.yellowStarIcon, height: 17.h, width: 15.w,),
                               const SizedBox(
                                 width: 3,
                               ),
                               Text(
                                 "4.9",
                                 style: style.copyWith(
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
@@ -295,7 +296,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       Text(
                         "6391 Elgin St. Celina,Delaware 10299876 Green town,Rosaville Is the perfect peacful location for those who loves to spend his time with nature and love the fresh air",
                         style: style.copyWith(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           color: AppColors.greyText,
                           fontWeight: FontWeight.w300,
                         ),

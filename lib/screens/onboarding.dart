@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sca_ui_imp/shared/app_colors.dart';
 import 'package:sca_ui_imp/shared/assets.dart';
 import 'package:sca_ui_imp/shared/navigation/app_router.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -60,8 +62,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 (i) => AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
                   margin: const EdgeInsets.only(right: 12),
-                  height: 10,
-                  width: 10,
+                  height: 10.h,
+                  width: 10.w,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: _tabController.index == i
@@ -118,7 +120,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                     TextSpan(
                       text: "Workspace",
                       style: style.copyWith(
-                        fontSize: 27,
+                        fontSize: 27.sp,
                         fontWeight: FontWeight.w600,
                         color: AppColors.appColor,
                       ),
@@ -128,7 +130,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                     ),
                   ],
                   style: style.copyWith(
-                    fontSize: 27,
+                    fontSize: 27.sp,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -139,7 +141,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               Text(
                 "A Space that unite the conscious individuals who collaborate to reduce their carbon footprint.",
                 style: style.copyWith(
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   color: AppColors.greyText,
                   fontWeight: FontWeight.w400,
                 ),
@@ -173,7 +175,7 @@ class AppButton extends StatelessWidget {
           textAlign: TextAlign.center,
           style: style.copyWith(
             color: AppColors.white,
-            fontSize: 19,
+            fontSize: 19.sp,
             fontWeight: FontWeight.w600,
           ),
         ),

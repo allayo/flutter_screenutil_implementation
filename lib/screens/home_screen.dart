@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sca_ui_imp/shared/app_colors.dart';
 import 'package:sca_ui_imp/shared/assets.dart';
 import 'package:sca_ui_imp/shared/navigation/app_router.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   textAlign: TextAlign.start,
                   style: style.copyWith(
                     color: AppColors.white,
-                    fontSize: 25,
+                    fontSize: 25.spMin,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -40,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   textAlign: TextAlign.start,
                   style: style.copyWith(
                     color: AppColors.white,
-                    fontSize: 16,
+                    fontSize: 16.spMin,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         actions: [
-          SvgPicture.asset(AppAssets.notificationIcon),
+          SvgPicture.asset(AppAssets.notificationIcon,height: 20.h,width: 17.w,),
           const SizedBox(
             width: 20,
           )
@@ -82,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    SvgPicture.asset(AppAssets.rankIcon)
+                    SvgPicture.asset(AppAssets.rankIcon, width: 15.w, height: 20.h,)
                   ],
                 ),
               )
@@ -107,14 +108,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               TextSpan(
                                 text: " place",
                                 style: style.copyWith(
-                                  fontSize: 27,
+                                  fontSize: 27.spMin,
                                   fontWeight: FontWeight.w600,
                                   color: AppColors.appColor,
                                 ),
                               ),
                             ],
                             style: style.copyWith(
-                              fontSize: 27,
+                              fontSize: 27.spMin,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -128,13 +129,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.symmetric(
                         horizontal: 20,
                       ),
-                      height: 51,
+                      height: 51.h,
                       child: Row(
                         children: [
                           Expanded(
                             child: TextFormField(
                               style: style.copyWith(
-                                fontSize: 16,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.w500,
                                 color: AppColors.black,
                               ),
@@ -150,14 +151,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                     SvgPicture.asset(
                                       AppAssets.searchIcon,
-                                      height: 25,
-                                      width: 25,
+                                      height: 25.h,
+                                      width: 25.w,
                                     ),
                                   ],
                                 ),
                                 hintText: "Search Now",
                                 hintStyle: style.copyWith(
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   color: AppColors.appColor,
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -189,7 +190,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             width: 20,
                           ),
-                          SvgPicture.asset(AppAssets.filterIcon)
+                          SvgPicture.asset(AppAssets.filterIcon, height: 47.h,
+                            width: 47.w,)
                         ],
                       ),
                     ),
@@ -227,7 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             "Recommended for You",
                             style: style.copyWith(
-                              fontSize: 18,
+                              fontSize: 18.sp,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -278,28 +280,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                           Text(
                                             "876 Green town",
                                             style: style.copyWith(
-                                              fontSize: 17,
+                                              fontSize: 17.sp,
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
                                           Text(
                                             "Rosaville",
                                             style: style.copyWith(
-                                                fontSize: 17,
+                                                fontSize: 17.sp,
                                                 fontWeight: FontWeight.w400,
                                                 color: AppColors.greyText),
                                           ),
                                           Row(
                                             children: [
                                               SvgPicture.asset(
-                                                  AppAssets.yellowStarIcon),
+                                                  AppAssets.yellowStarIcon,height: 16.h, width: 17.h,),
                                               const SizedBox(
                                                 width: 3,
                                               ),
                                               Text(
                                                 "4.9",
                                                 style: style.copyWith(
-                                                  fontSize: 16,
+                                                  fontSize: 16.sp,
                                                   fontWeight: FontWeight.w400,
                                                 ),
                                               ),
@@ -333,8 +335,8 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         Container(
           margin: EdgeInsets.only(right: 15, left: isFirst ? 20 : 0),
-          height: 113,
-          width: 113,
+          height: 113.h,
+          width: 113.w,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -348,14 +350,14 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(asset),
+              SvgPicture.asset(asset, height: 41.h, width: 41.w,),
               const SizedBox(
                 height: 10,
               ),
               Text(
                 title,
                 style: style.copyWith(
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
                   color: AppColors.black,
                 ),
